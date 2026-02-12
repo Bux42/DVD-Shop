@@ -23,5 +23,5 @@ Run the development server
 
 ```bash
 cd api
-npm run dev
+npm run start:dev
 ```
