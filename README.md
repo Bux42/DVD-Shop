@@ -25,3 +25,7 @@ Run the development server
 cd api
 npm run start:dev
 ```
+
+## API Documentation
+
+Access the API documentation at http://localhost:3000/api
