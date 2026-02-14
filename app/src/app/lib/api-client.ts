@@ -7,19 +7,22 @@ const axiosInstance = axios.create({
 export const apiClient = async <T>({
   url,
   method,
-  body,
+  data,
   headers,
+  signal,
 }: {
   url: string;
   method: string;
-  body?: any;
+  data?: any;
   headers?: Record<string, string>;
+  signal?: AbortSignal;
 }): Promise<T> => {
   const response = await axiosInstance.request<T>({
     url,
     method,
-    data: body,
+    data,
     headers,
+    signal,
   });
 
   return response.data;
