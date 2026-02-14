@@ -27,12 +27,12 @@ export class PricingService {
     );
 
     const totalPriceWithDiscount = processedItems.reduce(
-      (total, item) => total + item.finalPrice,
+      (total, item) => total + item.finalPrice * item.quantity,
       0,
     );
 
     const totalPriceWithoutDiscount = processedItems.reduce(
-      (total, item) => total + item.unitPrice,
+      (total, item) => total + item.unitPrice * item.quantity,
       0,
     );
 
