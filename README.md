@@ -26,6 +26,8 @@ cd api
 npm run start:dev
 ```
 
+The default frontend url is http://localhost:3000
+
 The default API port is 3200
 To configure it, create a .env file in the api directory and set the PORT environment variable
 (refer to .env.template for an example)
@@ -49,3 +51,13 @@ Run the development server
 cd app
 npm run dev
 ```
+
+To generate API types after changes in API, run the following command from the app directory
+
+```bash
+npm run generate-api
+```
+
+The default API URL is http://localhost:3200
+To configure it, create a .env file in the app directory and set the NEXT_PUBLIC_API_URL environment variable
+(refer to .env.template for an example)
