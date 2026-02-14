@@ -3,8 +3,10 @@ import { CSSProperties } from "react";
 export interface ICartStyles {
   container: CSSProperties;
   badge: CSSProperties;
+  hiddenBadge: CSSProperties;
   button: (isEmpty: boolean) => CSSProperties;
   icon: (isEmpty: boolean) => CSSProperties;
+  dropdown: CSSProperties;
 }
 
 export const CartStyles: ICartStyles = {
@@ -17,6 +19,9 @@ export const CartStyles: ICartStyles = {
   badge: {
     backgroundColor: "var(--accent)",
     boxShadow: "0 2px 8px rgba(37, 99, 235, 0.3)",
+  },
+  hiddenBadge: {
+    display: "none",
   },
   button: (isEmpty: boolean) => ({
     display: "flex",
@@ -38,4 +43,15 @@ export const CartStyles: ICartStyles = {
     color: isEmpty ? "#94a3b8" : "var(--accent)",
     transition: "transform 0.3s ease",
   }),
+  dropdown: {
+    position: "absolute",
+    top: "calc(100% + 12px)",
+    right: 0,
+    background: "var(--background)",
+    borderRadius: "16px",
+    border: "1px solid var(--card-border)",
+    boxShadow: "0 12px 40px rgba(0, 0, 0, 0.2)",
+    padding: "20px",
+    zIndex: 1000,
+  },
 };

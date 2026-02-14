@@ -5,9 +5,10 @@ import { ShoppingCartOutlined } from "@ant-design/icons";
 import { Badge, Button } from "antd";
 import { useState } from "react";
 import { CartStyles } from "./Cart.styles";
+import CartList from "./cart-list/CartList";
 
 const Cart = () => {
-  const { totalItems } = useCart();
+  const { items, totalItems } = useCart();
   const [isOpen, setIsOpen] = useState(false);
   const isEmpty = totalItems === 0;
 
@@ -21,7 +22,7 @@ const Cart = () => {
     <div style={CartStyles.container}>
       <Badge
         count={totalItems}
-        style={isEmpty ? { display: "none" } : CartStyles.badge}
+        style={isEmpty ? CartStyles.hiddenBadge : CartStyles.badge}
         offset={[-4, 4]}
       >
         <Button
@@ -33,11 +34,11 @@ const Cart = () => {
         />
       </Badge>
 
-      {/* 
-        Cart items list implementation will go here later.
-        The state 'isOpen' is ready to toggle the visibility.
-      */}
-      {isOpen && !isEmpty && <>{/* List component will be added here */}</>}
+      {isOpen && !isEmpty && (
+        <div style={CartStyles.dropdown}>
+          <CartList items={items} />
+        </div>
+      )}
     </div>
   );
 };
