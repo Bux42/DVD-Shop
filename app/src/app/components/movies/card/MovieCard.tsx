@@ -2,6 +2,7 @@ import { MovieCardProps } from "./MovieCard.types";
 import { Card, Button, Typography, Tag } from "antd";
 import { MovieCardStyles } from "./MovieCard.styles";
 import { useCart } from "@/app/context/CartContext";
+import Image from "next/image";
 
 const { Title, Text } = Typography;
 
@@ -18,7 +19,7 @@ export default function MovieCard({ movie }: MovieCardProps) {
       styles={MovieCardStyles.antdCard}
       cover={
         <div style={MovieCardStyles.imageContainer}>
-          <img
+          <Image
             alt={movie.title}
             src={`https://picsum.photos/400/600?random=${movie.id}`}
             style={MovieCardStyles.image}
