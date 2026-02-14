@@ -1,7 +1,9 @@
+import { CardStylesType } from "antd/es/card/Card";
 import { CSSProperties } from "react";
 
 export interface IMovieCardStyles {
   card: CSSProperties;
+  antdCard: CardStylesType;
   imageContainer: CSSProperties;
   image: CSSProperties;
   tagContainer: CSSProperties;
@@ -16,56 +18,80 @@ export interface IMovieCardStyles {
 export const MovieCardStyles: IMovieCardStyles = {
   card: {
     width: "100%",
-    borderRadius: "12px",
+    padding: 0,
+    borderRadius: "16px",
     overflow: "hidden",
-    border: "1px solid #f0f0f0",
-    transition: "all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1)",
+    border: "1px solid var(--card-border)",
+    background: "var(--card-bg)",
+    transition: "all 0.4s cubic-bezier(0.4, 0, 0.2, 1)",
+    boxShadow: "0 4px 20px rgba(0, 0, 0, 0.05)",
+  },
+  antdCard: {
+    body: { padding: 0 },
   },
   imageContainer: {
     position: "relative",
-    height: "280px",
+    height: "320px",
     overflow: "hidden",
   },
   image: {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    transition: "transform 0.5s ease",
+    transition: "transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)",
   },
   tagContainer: {
     position: "absolute",
-    top: "12px",
-    right: "12px",
+    top: "16px",
+    right: "16px",
+    zIndex: 2,
   },
   tag: {
-    borderRadius: "4px",
-    fontWeight: 600,
-    padding: "2px 8px",
+    borderRadius: "6px",
+    fontWeight: 700,
+    padding: "4px 10px",
+    fontSize: "10px",
+    textTransform: "uppercase",
+    letterSpacing: "0.05em",
+    border: "none",
+    backdropFilter: "blur(4px)",
+    background: "rgba(24, 144, 255, 0.9)",
   },
   buyButton: {
-    width: "90%",
-    borderRadius: "6px",
-    fontWeight: 600,
+    width: "calc(100% - 32px)",
+    height: "40px",
+    borderRadius: "10px",
+    fontWeight: 700,
+    margin: "16px auto",
+    display: "block",
+    boxShadow: "0 4px 12px rgba(24, 144, 255, 0.3)",
   },
   contentContainer: {
-    height: "100px",
+    padding: "20px 16px 0",
     display: "flex",
     flexDirection: "column",
-    justifyContent: "space-between",
+    gap: "12px",
   },
   movieTitle: {
     margin: 0,
-    height: "48px",
+    fontSize: "1.1rem",
+    fontWeight: 700,
+    lineHeight: "1.4",
+    height: "3.1em",
+    display: "-webkit-box",
+    WebkitLineClamp: 2,
+    WebkitBoxOrient: "vertical",
     overflow: "hidden",
-    textOverflow: "ellipsis",
   },
   priceContainer: {
     display: "flex",
     justifyContent: "space-between",
-    alignItems: "center",
+    alignItems: "baseline",
+    marginTop: "4px",
   },
   priceAmount: {
-    fontSize: "18px",
-    color: "#1890ff",
+    fontSize: "20px",
+    color: "var(--accent)",
+    fontWeight: 800,
   },
 };

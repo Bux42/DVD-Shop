@@ -12,38 +12,40 @@ export interface IMovieListStyles {
 
 export const MovieListStyles: IMovieListStyles = {
   listContainer: {
-    padding: "24px",
+    padding: "40px 24px",
     maxWidth: "1400px",
     margin: "0 auto",
   },
   title: {
-    marginBottom: "32px",
-    fontWeight: 700,
+    marginBottom: "48px",
+    fontWeight: 800,
     textAlign: "center",
-    letterSpacing: "-0.5px",
+    fontSize: "2.5rem",
+    letterSpacing: "-0.02em",
+    opacity: 0.9,
   },
   skeletonCard: {
-    background: "#fff",
-    borderRadius: "12px",
+    background: "var(--card-bg)",
+    borderRadius: "16px",
     overflow: "hidden",
-    boxShadow: "0 4px 12px rgba(0,0,0,0.05)",
-    border: "1px solid #f0f0f0",
+    border: "1px solid var(--card-border)",
   },
   skeletonContent: {
-    padding: "16px",
+    padding: "20px",
   },
   skeletonButton: {
-    height: "280px",
+    height: "320px",
     width: "100%",
   },
   errorContainer: {
-    padding: "60px 24px",
+    padding: "80px 24px",
     textAlign: "center",
     maxWidth: "600px",
     margin: "0 auto",
   },
   emptyContainer: {
-    marginTop: "100px",
+    marginTop: "120px",
     textAlign: "center",
+    opacity: 0.6,
   },
 };

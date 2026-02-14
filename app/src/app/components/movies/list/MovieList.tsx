@@ -60,7 +60,7 @@ export default function MovieList() {
   return (
     <div style={MovieListStyles.listContainer}>
       <Title level={2} style={MovieListStyles.title}>
-        Movies Collection
+        Movies
       </Title>
       <Row gutter={[24, 24]}>
         {data.items.map((movie) => (

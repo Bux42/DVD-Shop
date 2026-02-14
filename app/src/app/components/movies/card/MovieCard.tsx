@@ -14,8 +14,8 @@ export default function MovieCard({ movie }: MovieCardProps) {
 
   return (
     <Card
-      hoverable
       style={MovieCardStyles.card}
+      styles={MovieCardStyles.antdCard}
       cover={
         <div style={MovieCardStyles.imageContainer}>
           <img
@@ -30,16 +30,6 @@ export default function MovieCard({ movie }: MovieCardProps) {
           </div>
         </div>
       }
-      actions={[
-        <Button
-          type="primary"
-          key="buy"
-          style={MovieCardStyles.buyButton}
-          onClick={handleAddToCart}
-        >
-          Add to Cart
-        </Button>,
-      ]}
     >
       <div style={MovieCardStyles.contentContainer}>
         <div>
@@ -48,12 +38,19 @@ export default function MovieCard({ movie }: MovieCardProps) {
           </Title>
         </div>
         <div style={MovieCardStyles.priceContainer}>
-          <Text type="secondary">Price</Text>
           <Text strong style={MovieCardStyles.priceAmount}>
             ${movie.price.toFixed(2)}
           </Text>
         </div>
       </div>
+      <Button
+        type="primary"
+        key="buy"
+        style={MovieCardStyles.buyButton}
+        onClick={handleAddToCart}
+      >
+        Add to Cart
+      </Button>
     </Card>
   );
 }
