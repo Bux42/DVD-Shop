@@ -2,7 +2,6 @@ import { MovieCardProps } from "./MovieCard.types";
 import { Card, Button, Typography, Tag } from "antd";
 import { MovieCardStyles } from "./MovieCard.styles";
 import { useCart } from "@/app/context/CartContext";
-import Image from "next/image";
 
 const { Title, Text } = Typography;
 
