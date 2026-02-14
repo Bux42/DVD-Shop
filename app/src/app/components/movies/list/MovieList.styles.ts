@@ -3,11 +3,9 @@ import { CSSProperties } from "react";
 export interface IMovieListStyles {
   listContainer: CSSProperties;
   title: CSSProperties;
-  skeletonCard: CSSProperties;
-  skeletonContent: CSSProperties;
-  skeletonButton: CSSProperties;
   errorContainer: CSSProperties;
   emptyContainer: CSSProperties;
+  loadingContainer: CSSProperties;
 }
 
 export const MovieListStyles: IMovieListStyles = {
@@ -24,19 +22,6 @@ export const MovieListStyles: IMovieListStyles = {
     letterSpacing: "-0.02em",
     opacity: 0.9,
   },
-  skeletonCard: {
-    background: "var(--card-bg)",
-    borderRadius: "16px",
-    overflow: "hidden",
-    border: "1px solid var(--card-border)",
-  },
-  skeletonContent: {
-    padding: "20px",
-  },
-  skeletonButton: {
-    height: "320px",
-    width: "100%",
-  },
   errorContainer: {
     padding: "80px 24px",
     textAlign: "center",
@@ -47,5 +32,13 @@ export const MovieListStyles: IMovieListStyles = {
     marginTop: "120px",
     textAlign: "center",
     opacity: 0.6,
+  },
+  loadingContainer: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    minHeight: "400px",
+    width: "100%",
   },
 };

@@ -2,7 +2,7 @@
 
 import { useMoviesControllerList } from "@/app/services/movies/movies";
 import MovieCard from "../card/MovieCard";
-import { Row, Col, Typography, Skeleton, Empty, Alert } from "antd";
+import { Row, Col, Typography, Skeleton, Empty, Alert, Spin } from "antd";
 import { MovieListStyles } from "./MovieList.styles";
 
 const { Title } = Typography;
@@ -28,23 +28,11 @@ export default function MovieList() {
     return (
       <div style={MovieListStyles.listContainer}>
         <Title level={2} style={MovieListStyles.title}>
-          Movies Collection
+          Movies
         </Title>
-        <Row gutter={[24, 24]}>
-          {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
-            <Col key={i} xs={24} sm={12} md={8} lg={6} xl={4}>
-              <div style={MovieListStyles.skeletonCard}>
-                <Skeleton.Button
-                  active
-                  style={MovieListStyles.skeletonButton}
-                />
-                <div style={MovieListStyles.skeletonContent}>
-                  <Skeleton active paragraph={{ rows: 2 }} title={false} />
-                </div>
-              </div>
-            </Col>
-          ))}
-        </Row>
+        <div style={MovieListStyles.loadingContainer}>
+          <Spin size="large" description="Loading..." />
+        </div>
       </div>
     );
   }
