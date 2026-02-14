@@ -1,12 +1,15 @@
 import { MovieCardProps } from "./MovieCard.types";
 import { Card, Button, Typography, Tag } from "antd";
 import { MovieCardStyles } from "./MovieCard.styles";
+import { useCart } from "@/app/context/CartContext";
 
 const { Title, Text } = Typography;
 
 export default function MovieCard({ movie }: MovieCardProps) {
+  const { addItem } = useCart();
+
   const handleAddToCart = () => {
-    console.log("Add to cart:", movie);
+    addItem({ id: movie.id, quantity: 1 });
   };
 
   return (
