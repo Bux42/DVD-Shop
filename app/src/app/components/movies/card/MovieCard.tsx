@@ -1,7 +1,56 @@
-export default function MovieCard() {
+import { MovieCardProps } from "./MovieCard.types";
+import { Card, Button, Typography, Tag } from "antd";
+import { MovieCardStyles } from "./MovieCard.styles";
+
+const { Title, Text } = Typography;
+
+export default function MovieCard({ movie }: MovieCardProps) {
+  const handleAddToCart = () => {
+    console.log("Add to cart:", movie);
+  };
+
   return (
-    <div>
-      <h1>Movie Card</h1>
-    </div>
+    <Card
+      hoverable
+      style={MovieCardStyles.card}
+      cover={
+        <div style={MovieCardStyles.imageContainer}>
+          <img
+            alt={movie.title}
+            src={`https://picsum.photos/400/600?random=${movie.id}`}
+            style={MovieCardStyles.image}
+          />
+          <div style={MovieCardStyles.tagContainer}>
+            <Tag color="blue" style={MovieCardStyles.tag}>
+              DVD
+            </Tag>
+          </div>
+        </div>
+      }
+      actions={[
+        <Button
+          type="primary"
+          key="buy"
+          style={MovieCardStyles.buyButton}
+          onClick={handleAddToCart}
+        >
+          Add to Cart
+        </Button>,
+      ]}
+    >
+      <div style={MovieCardStyles.contentContainer}>
+        <div>
+          <Title level={5} style={MovieCardStyles.movieTitle}>
+            {movie.title}
+          </Title>
+        </div>
+        <div style={MovieCardStyles.priceContainer}>
+          <Text type="secondary">Price</Text>
+          <Text strong style={MovieCardStyles.priceAmount}>
+            ${movie.price.toFixed(2)}
+          </Text>
+        </div>
+      </div>
+    </Card>
   );
 }
