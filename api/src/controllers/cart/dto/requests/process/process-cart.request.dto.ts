@@ -6,7 +6,7 @@ import { ApiProperty } from '@nestjs/swagger';
 export class ProcessCartDtoRequest {
   @IsDefined()
   @IsArray()
-  @ValidateNested()
+  @ValidateNested({ each: true })
   @Type(() => ProcessCartItemDtoRequest)
   @ApiProperty({
     type: [ProcessCartItemDtoRequest],
