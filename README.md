@@ -27,6 +27,7 @@ npm run start:dev
 ```
 
 The default frontend url is http://localhost:3000
+It can be configured in the .env file with the FRONTEND_URL variable
 
 The default API port is 3200
 To configure it, create a .env file in the api directory and set the PORT environment variable
