@@ -4,6 +4,7 @@ import { useMoviesControllerList } from "@/app/services/movies/movies";
 import MovieCard from "../card/MovieCard";
 import { Row, Col, Typography, Empty, Alert, Spin } from "antd";
 import { MovieListStyles } from "./MovieList.styles";
+import { NestHttpException } from "@/app/lib/nest-error.types";
 
 const { Title } = Typography;
 
@@ -15,7 +16,8 @@ export default function MovieList() {
       <div style={MovieListStyles.errorContainer}>
         <Alert
           description={
-            (error as any)?.message || "Failed to load movies from the server."
+            (error as NestHttpException)?.message ||
+            "Failed to load movies from the server."
           }
           type="error"
           showIcon

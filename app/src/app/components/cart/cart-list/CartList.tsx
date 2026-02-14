@@ -1,11 +1,12 @@
 "use client";
 
 import { useCartControllerProcess } from "@/app/services/cart/cart";
-import { Spin, Typography, List } from "antd";
+import { Spin, Typography, List, Alert } from "antd";
 import { useEffect } from "react";
 import { CartListProps } from "./CartList.types";
 import { CartListStyles } from "./CartList.styles";
 import CartItem from "../cart-item/CartItem";
+import { NestHttpException } from "@/app/lib/nest-error.types";
 
 const { Text } = Typography;
 
@@ -28,6 +29,21 @@ const CartList = ({ items }: CartListProps) => {
   }
 
   const responseData = processMutation.data;
+
+  if (processMutation.isError) {
+    return (
+      <div style={CartListStyles.errorContainer}>
+        <Alert
+          description={
+            (processMutation.error as NestHttpException)?.message ||
+            "Failed to process cart."
+          }
+          type="error"
+          showIcon
+        />
+      </div>
+    );
+  }
 
   if (!responseData || !responseData.items) {
     return (

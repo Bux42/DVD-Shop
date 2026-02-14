@@ -13,7 +13,7 @@ export const apiClient = async <T>({
 }: {
   url: string;
   method: string;
-  data?: any;
+  data?: unknown;
   headers?: Record<string, string>;
   signal?: AbortSignal;
 }): Promise<T> => {

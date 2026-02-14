@@ -1,6 +1,7 @@
 import { CSSProperties } from "react";
 
 export interface ICartListStyles {
+  errorContainer: CSSProperties;
   container: CSSProperties;
   listItem: CSSProperties;
   totalContainer: CSSProperties;
@@ -16,6 +17,10 @@ export interface ICartListStyles {
 }
 
 export const CartListStyles: ICartListStyles = {
+  errorContainer: {
+    padding: "20px",
+    textAlign: "center",
+  },
   container: {
     display: "flex",
     flexDirection: "column",
