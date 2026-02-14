@@ -5,6 +5,7 @@ export interface ProcessCartItemDiscountResponse {
 
 export interface ProcessCartItemResponse {
   id: number;
+  title: string;
   unitPrice: number;
   finalPrice: number;
   quantity: number;

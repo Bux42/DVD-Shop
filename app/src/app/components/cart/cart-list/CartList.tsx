@@ -16,7 +16,8 @@ const CartList = ({ items }: CartListProps) => {
     if (items.length > 0) {
       processMutation.mutate({ data: { items } });
     }
-  }, [items, processMutation]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items]);
 
   if (processMutation.isPending) {
     return (
