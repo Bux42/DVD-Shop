@@ -26,7 +26,7 @@ const CartList = ({ items }: CartListProps) => {
     );
   }
 
-  const responseData = processMutation.data as any;
+  const responseData = processMutation.data;
 
   if (!responseData || !responseData.items) {
     return (
@@ -40,7 +40,7 @@ const CartList = ({ items }: CartListProps) => {
     <div style={CartListStyles.container}>
       <List
         dataSource={responseData.items}
-        renderItem={(item: any) => (
+        renderItem={(item) => (
           <List.Item style={CartListStyles.listItemWrapper}>
             <CartItem item={item} />
           </List.Item>
