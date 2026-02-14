@@ -2,7 +2,7 @@
 
 import { useMoviesControllerList } from "@/app/services/movies/movies";
 import MovieCard from "../card/MovieCard";
-import { Row, Col, Typography, Skeleton, Empty, Alert, Spin } from "antd";
+import { Row, Col, Typography, Empty, Alert, Spin } from "antd";
 import { MovieListStyles } from "./MovieList.styles";
 
 const { Title } = Typography;
