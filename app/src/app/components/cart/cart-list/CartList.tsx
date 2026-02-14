@@ -16,7 +16,7 @@ const CartList = ({ items }: CartListProps) => {
     if (items.length > 0) {
       processMutation.mutate({ data: { items } });
     }
-  }, [items]);
+  }, [items, processMutation]);
 
   if (processMutation.isPending) {
     return (
