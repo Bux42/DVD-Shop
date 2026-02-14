@@ -14,7 +14,25 @@ export interface ProcessCartDtoRequest {
   items: ProcessCartItemDtoRequest[];
 }
 
-export interface ProcessCartResponse { [key: string]: unknown }
+export interface ProcessCartItemDiscountResponse {
+  discountRatePercent: number;
+  discountAmount: number;
+}
+
+export interface ProcessCartItemResponse {
+  id: number;
+  title: string;
+  unitPrice: number;
+  finalPrice: number;
+  discount: ProcessCartItemDiscountResponse;
+  quantity: number;
+}
+
+export interface ProcessCartResponse {
+  items: ProcessCartItemResponse[];
+  total: number;
+  totalDiscount: number;
+}
 
 export interface MovieItemResponseDto {
   id: number;
