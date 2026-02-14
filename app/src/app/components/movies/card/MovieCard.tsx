@@ -19,7 +19,8 @@ export default function MovieCard({ movie }: MovieCardProps) {
       styles={MovieCardStyles.antdCard}
       cover={
         <div style={MovieCardStyles.imageContainer}>
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             alt={movie.title}
             src={`https://picsum.photos/400/600?random=${movie.id}`}
             style={MovieCardStyles.image}
