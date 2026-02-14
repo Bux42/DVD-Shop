@@ -9,9 +9,14 @@ import { ProcessCartResponse } from '../../controllers/cart/dto/responses/proces
 
 describe('CartService', () => {
   let service: CartService;
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let pricingService: PricingService;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let productService: ProductService;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let productRepository: ProductRepository;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let dicountPolicy: BackToFuturePromotionPolicy;
 
   beforeEach(async () => {
@@ -55,6 +60,7 @@ describe('CartService', () => {
       items: [
         {
           id: 1,
+          title: 'Back to the Future 1',
           unitPrice: 15,
           finalPrice: 12,
           discount: {
@@ -65,6 +71,7 @@ describe('CartService', () => {
         },
         {
           id: 2,
+          title: 'Back to the Future 2',
           unitPrice: 15,
           finalPrice: 12,
           discount: {
@@ -75,6 +82,7 @@ describe('CartService', () => {
         },
         {
           id: 3,
+          title: 'Back to the Future 3',
           unitPrice: 15,
           finalPrice: 12,
           discount: {

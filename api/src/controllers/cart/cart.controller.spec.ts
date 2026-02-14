@@ -11,9 +11,14 @@ import { ProcessCartResponse } from './dto/responses/process/process-cart.respon
 
 describe('CartController', () => {
   let controller: CartController;
+
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let pricingService: PricingService;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let productService: ProductService;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let productRepository: ProductRepository;
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   let dicountPolicy: BackToFuturePromotionPolicy;
 
   beforeEach(async () => {
@@ -65,6 +70,7 @@ describe('CartController', () => {
       items: [
         {
           id: 1,
+          title: 'Back to the Future 1',
           unitPrice: 15,
           finalPrice: 15,
           quantity: 1,
@@ -91,6 +97,7 @@ describe('CartController', () => {
       items: [
         {
           id: 1,
+          title: 'Back to the Future 1',
           unitPrice: 15,
           finalPrice: 13.5,
           discount: {
@@ -101,6 +108,7 @@ describe('CartController', () => {
         },
         {
           id: 2,
+          title: 'Back to the Future 2',
           unitPrice: 15,
           finalPrice: 13.5,
           discount: {
@@ -136,6 +144,7 @@ describe('CartController', () => {
       items: [
         {
           id: 1,
+          title: 'Back to the Future 1',
           unitPrice: 15,
           finalPrice: 12,
           discount: {
@@ -146,6 +155,7 @@ describe('CartController', () => {
         },
         {
           id: 2,
+          title: 'Back to the Future 2',
           unitPrice: 15,
           finalPrice: 12,
           discount: {
@@ -156,6 +166,7 @@ describe('CartController', () => {
         },
         {
           id: 3,
+          title: 'Back to the Future 3',
           unitPrice: 15,
           finalPrice: 12,
           discount: {
@@ -194,6 +205,7 @@ describe('CartController', () => {
       items: [
         {
           id: 1,
+          title: 'Back to the Future 1',
           unitPrice: 15,
           finalPrice: 12,
           discount: {
@@ -204,6 +216,7 @@ describe('CartController', () => {
         },
         {
           id: 2,
+          title: 'Back to the Future 2',
           unitPrice: 15,
           finalPrice: 12,
           discount: {
@@ -214,6 +227,7 @@ describe('CartController', () => {
         },
         {
           id: 3,
+          title: 'Back to the Future 3',
           unitPrice: 15,
           finalPrice: 12,
           discount: {
@@ -224,6 +238,7 @@ describe('CartController', () => {
         },
         {
           id: 4,
+          title: 'Back to the Future 4',
           unitPrice: 15,
           finalPrice: 12,
           discount: {
@@ -255,12 +270,14 @@ describe('CartController', () => {
       items: [
         {
           id: 1,
+          title: 'Back to the Future 1',
           unitPrice: 15,
           finalPrice: 15,
           quantity: 1,
         },
         {
           id: 5,
+          title: 'Nope',
           unitPrice: 20,
           finalPrice: 20,
           quantity: 1,
@@ -290,6 +307,7 @@ describe('CartController', () => {
       items: [
         {
           id: 1,
+          title: 'Back to the Future 1',
           unitPrice: 15,
           finalPrice: 13.5,
           discount: {
@@ -300,6 +318,7 @@ describe('CartController', () => {
         },
         {
           id: 2,
+          title: 'Back to the Future 2',
           unitPrice: 15,
           finalPrice: 13.5,
           discount: {
@@ -310,6 +329,7 @@ describe('CartController', () => {
         },
         {
           id: 5,
+          title: 'Nope',
           unitPrice: 20,
           finalPrice: 20,
           quantity: 1,
@@ -317,6 +337,66 @@ describe('CartController', () => {
       ],
       total: 47,
       totalDiscount: 3,
+    };
+    expect(result).toEqual(expectedResult);
+  });
+
+  it('should handle discounts with quantity greater than 1', async () => {
+    const processCartDto: ProcessCartDtoRequest = {
+      items: [
+        {
+          id: 1,
+          quantity: 1,
+        },
+        {
+          id: 2,
+          quantity: 1,
+        },
+        {
+          id: 3,
+          quantity: 2,
+        },
+      ],
+    };
+    const result = await controller.process(processCartDto);
+    const expectedResult: ProcessCartResponse = {
+      items: [
+        {
+          id: 1,
+          title: 'Back to the Future 1',
+          unitPrice: 15,
+          finalPrice: 12,
+          quantity: 1,
+          discount: {
+            discountRatePercent: 20,
+            discountAmount: 3,
+          },
+        },
+        {
+          id: 2,
+          title: 'Back to the Future 2',
+          unitPrice: 15,
+          finalPrice: 12,
+          quantity: 1,
+          discount: {
+            discountRatePercent: 20,
+            discountAmount: 3,
+          },
+        },
+        {
+          id: 3,
+          title: 'Back to the Future 3',
+          unitPrice: 15,
+          finalPrice: 12,
+          quantity: 2,
+          discount: {
+            discountRatePercent: 20,
+            discountAmount: 3,
+          },
+        },
+      ],
+      total: 48,
+      totalDiscount: 12,
     };
     expect(result).toEqual(expectedResult);
   });

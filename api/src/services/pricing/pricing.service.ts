@@ -71,6 +71,7 @@ export class PricingService {
 
       const processedCartItem: ProcessCartItemResponse = {
         id: item.id,
+        title: item.title,
         unitPrice: unitPrice,
         finalPrice: finalPrice,
         quantity: item.quantity,

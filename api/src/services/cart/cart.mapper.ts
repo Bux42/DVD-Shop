@@ -14,6 +14,7 @@ export const convertProductsToCartItems = (
     }
     const item: CartItem = {
       id: product.id,
+      title: product.name,
       unitPrice: product.price,
       quantity: cartItem.quantity || 1,
     };
