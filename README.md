@@ -38,6 +38,8 @@ To configure it, create a .env file in the api directory and set the PORT enviro
 
 Once the API is running, you can access the Swagger API documentation at http://localhost:3200/api
 
+Additionally, there is a Postman collection that can be imported into Postman with all use cases in the postman folder
+
 ## Website Setup
 
 Install dependencies
@@ -53,6 +55,8 @@ Run the development server
 cd app
 npm run dev
 ```
+
+Once the development server is running, you can access the website at http://localhost:3000
 
 To generate API types after changes in API, run the following command from the app directory
 
