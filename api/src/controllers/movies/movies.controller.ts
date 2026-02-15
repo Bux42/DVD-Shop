@@ -1,6 +1,6 @@
 import { Controller, Get } from '@nestjs/common';
 import { ApiResponse } from '@nestjs/swagger';
-import { MoviesService } from 'src/services/movie/movie.service';
+import { MoviesService } from '../../services/movie/movie.service';
 import { MoviesListResponseDto } from './dto/responses/list/list.response.dto';
 
 @Controller('movies')

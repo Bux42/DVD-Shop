@@ -8,14 +8,14 @@ export class ProductRepository {
   private readonly products: Product[] = MOCK_DVD_LIST;
 
   async getAll() {
-    return this.products;
+    return Promise.resolve(this.products);
   }
 
   async findById(id: number) {
-    return this.products.find((dvd) => dvd.id === id);
+    return Promise.resolve(this.products.find((dvd) => dvd.id === id));
   }
 
   async findByIds(ids: number[]) {
-    return this.products.filter((dvd) => ids.includes(dvd.id));
+    return Promise.resolve(this.products.filter((dvd) => ids.includes(dvd.id)));
   }
 }
