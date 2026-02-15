@@ -30,12 +30,13 @@ The default frontend url is http://localhost:3000
 It can be configured in the .env file with the FRONTEND_URL variable
 
 The default API port is 3200
+
 To configure it, create a .env file in the api directory and set the PORT environment variable
-(refer to .env.template for an example)
+(refer to .env.template in the api directory for an example)
 
 ## API Documentation
 
-Access the API documentation at http://localhost:3200/api
+Once the API is running, you can access the Swagger API documentation at http://localhost:3200/api
 
 ## Website Setup
 
@@ -60,5 +61,6 @@ npm run generate-api
 ```
 
 The default API URL is http://localhost:3200
+
 To configure it, create a .env file in the app directory and set the NEXT_PUBLIC_API_URL environment variable
-(refer to .env.template for an example)
+(refer to .env.template in the app directory for an example)
